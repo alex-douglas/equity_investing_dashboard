@@ -1,0 +1,249 @@
+.toggle-button-container .toggle-button:hover, .symbol-list-container .symbol-button:hover {
+  cursor: pointer;
+  background: #2E3641;
+}
+
+.gradient-top, .gradient-bottom {
+  position: absolute;
+  left: 1px;
+  width: 99.5%;
+  height: 15px;
+  z-index: 1;
+}
+
+.right-outer-frame, .left-outer-frame {
+  display: flex;
+  flex-flow: column;
+}
+
+.twitter-feed-container, .news-feed-container {
+  border-bottom: 1px solid #38444D;
+  border-left: 1px solid #38444D;
+  overflow-y: scroll;
+  height: 50%;
+}
+
+body {
+  background: #15202B !important;
+  color: #FEFEFE !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+body, html, #root {
+  height: 100%;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+.col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3,
+.col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1,
+.col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7,
+.col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3,
+.col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.gradient-bottom {
+  background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* FF3.6+ */
+  background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* W3C */
+  bottom: 1px;
+}
+
+.gradient-top {
+  background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* FF3.6+ */
+  background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* IE10+ */
+  background: linear-gradient(to top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* W3C */
+}
+
+.graph-container {
+  flex: 1 1 auto;
+  border-top: 1px solid #38444D;
+  border-bottom: 1px solid #38444D;
+}
+.graph-container .crosshair-container {
+  font-size: 1.1em;
+  display: inline-block;
+  background: #545454;
+  border-radius: 2px;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.feed-title {
+  background: #15202B;
+  position: absolute;
+  text-align: center;
+  width: 99.5%;
+  margin-top: -20px;
+  z-index: 1;
+}
+
+.outer-container {
+  padding: 10px;
+}
+
+.inner-container {
+  border-top: 1px solid #38444D;
+  border-right: 1px solid #38444D;
+  border-left: 1px solid #38444D;
+  border-radius: 4px;
+}
+
+.right-outer-frame {
+  height: 100%;
+}
+
+.span-user-handle {
+  color: #BBBBBB;
+}
+
+.stats-container {
+  border-bottom: 1px solid #38444D;
+  flex: 0 1 80px;
+}
+
+.symbol-list-container {
+  flex-grow: 1;
+  border-left: 1px solid #38444D;
+  padding: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.symbol-list-container .symbol-button {
+  background: #262E39;
+  border-color: #868686;
+  border-radius: 6px;
+  color: #FEFEFE;
+  height: 100%;
+  margin-right: 9px;
+  width: 70px;
+  transform: translateX(30px);
+}
+.symbol-list-container::-webkit-scrollbar {
+  height: 0 !important;
+}
+
+.toggle-and-symbol-list-container {
+  display: flex;
+  flex-wrap: nowrap !important;
+  min-height: 60px;
+  max-height: 120px;
+}
+
+.toggle-button-container {
+  padding: 5px;
+}
+.toggle-button-container .toggle-button {
+  background: #262E39;
+  border-color: #868686;
+  border-radius: 3px;
+  color: #FEFEFE;
+  height: 100%;
+}
+.news-feed-container {
+  flex: 1 1 auto;
+  padding-top: 20px;
+}
+.news-feed-container .news-container {
+  background: #1D2833;
+  border: 1px solid #868686;
+  border-radius: 4px;
+  margin: 8px;
+}
+.news-feed-container .news-container .news-header {
+  margin: 5px !important;
+}
+.news-feed-container .news-container .news-publisher-info {
+  padding-left: 5px !important;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.news-feed-container .news-container .news-body {
+  font-size: 0.85em;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  line-height: 1.3em;
+}
+.news-feed-container .news-container .news-footer {
+  background: #262E39;
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: 100;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 2px !important;
+  border-top: 1px solid #38444D;
+}
+
+.news-feed-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.twitter-feed-container {
+  margin-top: 20px;
+}
+.twitter-feed-container .tweet-container {
+  background: #1D2833;
+  border: 1px solid #868686;
+  border-radius: 4px;
+  margin: 8px;
+}
+.twitter-feed-container .tweet-container .tweet-header {
+  margin: 5px !important;
+}
+.twitter-feed-container .tweet-container .tweet-profile-img {
+  border-radius: 100%;
+  width: 35px;
+}
+.twitter-feed-container .tweet-container .tweet-user-info {
+  padding-left: 5px !important;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.twitter-feed-container .tweet-container .tweet-body {
+  font-size: 0.85em;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  line-height: 1.3em;
+}
+.twitter-feed-container .tweet-container .tweet-footer {
+  background: #262E39;
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: 100;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 2px !important;
+  border-top: 1px solid #38444D;
+}
+
+.twitter-feed-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+/*# sourceMappingURL=main.css.map */
