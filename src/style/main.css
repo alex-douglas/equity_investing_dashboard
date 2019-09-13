@@ -5,8 +5,7 @@
 
 .gradient-top, .gradient-bottom {
   position: absolute;
-  left: 1px;
-  width: 99.5%;
+  width: 95%;
   height: 15px;
   z-index: 1;
 }
@@ -17,8 +16,9 @@
 }
 
 .twitter-feed-container, .news-feed-container {
-  border-bottom: 1px solid #38444D;
-  border-left: 1px solid #38444D;
+  border: 1px solid #38444D;
+  margin-left: 10px;
+  padding-top: 20px;
   overflow-y: scroll;
   height: 50%;
 }
@@ -91,12 +91,46 @@ body, html, #root {
   white-space: nowrap;
 }
 
+.rv-xy-plot__series circle:nth-last-of-type(1) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+.rv-xy-plot__series circle:nth-last-of-type(2) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+.rv-xy-plot__series circle:nth-last-of-type(3) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+
+@keyframes forecastFilter {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 20px #4fc1c8);
+    filter: drop-shadow(0px 0px 20px #4fc1c8);
+    stroke: #4fc1c8;
+  }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 20px #15202B);
+    filter: drop-shadow(0px 0px 20px #15202B);
+    stroke: #15202B;
+  }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 20px #4fc1c8);
+    filter: drop-shadow(0px 0px 20px #4fc1c8);
+    stroke: #4fc1c8;
+  }
+}
 .feed-title {
   background: #15202B;
   position: absolute;
   text-align: center;
-  width: 99.5%;
+  width: 95%;
   margin-top: -20px;
+  padding-right: 10px;
   z-index: 1;
 }
 
@@ -104,11 +138,8 @@ body, html, #root {
   padding: 10px;
 }
 
-.inner-container {
-  border-top: 1px solid #38444D;
-  border-right: 1px solid #38444D;
-  border-left: 1px solid #38444D;
-  border-radius: 4px;
+.left-outer-frame {
+  border: 1px solid #38444D;
 }
 
 .right-outer-frame {
@@ -120,27 +151,27 @@ body, html, #root {
 }
 
 .stats-container {
-  border-bottom: 1px solid #38444D;
   flex: 0 1 80px;
 }
 
 .symbol-list-container {
   flex-grow: 1;
   border-left: 1px solid #38444D;
-  padding: 10px;
-  overflow-x: scroll;
+  padding: 8px;
   overflow-y: hidden;
-  white-space: nowrap;
 }
 .symbol-list-container .symbol-button {
   background: #262E39;
-  border-color: #868686;
+  border: 1px solid #868686;
+  text-align: center;
   border-radius: 6px;
   color: #FEFEFE;
   height: 100%;
-  margin-right: 9px;
-  width: 70px;
+  padding-top: 10px;
   transform: translateX(30px);
+}
+.symbol-list-container .selected-button {
+  background: #4CCFFF;
 }
 .symbol-list-container::-webkit-scrollbar {
   height: 0 !important;
@@ -165,7 +196,7 @@ body, html, #root {
 }
 .news-feed-container {
   flex: 1 1 auto;
-  padding-top: 20px;
+  margin-top: 5px;
 }
 .news-feed-container .news-container {
   background: #1D2833;
@@ -204,7 +235,7 @@ body, html, #root {
 }
 
 .twitter-feed-container {
-  margin-top: 20px;
+  margin-bottom: 5px;
 }
 .twitter-feed-container .tweet-container {
   background: #1D2833;

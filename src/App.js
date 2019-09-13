@@ -4,7 +4,7 @@ import profile_img from './resources/profile_img.jpg'
 import './style/main.css';
 import '../node_modules/react-vis/dist/style.css';
 import { SortablePane, Pane } from 'react-sortable-pane';
-import { FlexibleXYPlot, LineSeries, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, Crosshair } from 'react-vis';
+import { FlexibleXYPlot, LineMarkSeries, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, Crosshair } from 'react-vis';
 
 const stocks = [
   'MSFT',
@@ -33,16 +33,16 @@ const datetimes = [
 ]
 
 const data = [
-  {x: 0, y: 8},
-  {x: 1, y: 6},
-  {x: 2, y: 4},
-  {x: 3, y: 7},
-  {x: 4, y: 3},
-  {x: 5, y: 7},
-  {x: 6, y: 6},
-  {x: 7, y: 3},
-  {x: 8, y: 2},
-  {x: 9, y: 5}
+  {x: 0, y: 8, color: '#21939A', size: 5},
+  {x: 1, y: 6, color: '#21939A', size: 5},
+  {x: 2, y: 4, color: '#21939A', size: 5},
+  {x: 3, y: 7, color: '#21939A', size: 5},
+  {x: 4, y: 3, color: '#21939A', size: 5},
+  {x: 5, y: 7, color: '#21939A', size: 5},
+  {x: 6, y: 6, color: '#21939A', size: 5},
+  {x: 7, y: 3, color: '#5ED0D7', size: 6},
+  {x: 8, y: 2, color: '#5ED0D7', size: 7},
+  {x: 9, y: 5, color: '#5ED0D7', size: 8}
 ];
 
 class App extends Component {
@@ -50,20 +50,7 @@ class App extends Component {
     super(props);
     this.state = {
       crosshairValues: [],
-      symbols: [
-        {name: 'MSFT', position: 0},
-        {name: 'TSLA', position: 1},
-        {name: 'UBER', position: 2},
-        {name: 'FB',   position: 3},
-        {name: 'AAPL', position: 4},
-        {name: 'AMD',  position: 5},
-        {name: 'SNAP', position: 6},
-        {name: 'TWTR', position: 7},
-        {name: 'NVDA', position: 8},
-        {name: 'SQ',   position: 9},
-      ],
-      order: stocks,
-      panes: { '0': { height: '100%', width: 120 }, '1': { height: '100%', width: 120 }, '2': { height: '100%', width: 120 } }
+      order: stocks
     };
   }
 
@@ -86,27 +73,10 @@ class App extends Component {
     this.setState({crosshairValues: [value]});
   };
 
-  adjustButtonOrder = (symbolName) => {
-    const prevPosition = this.state.symbols.filter(symbol => symbol.name === symbolName)[0].position;
-    const updatedOrdering = this.state.symbols.map(symbol => {
-      return (
-        {
-          name: symbol.name,
-          position: symbol.position === 0 ? prevPosition : symbol.name === symbolName ? 0 : symbol.position
-        }
-      )
-    });
-    this.setState({symbols: updatedOrdering});
-  }
-
   changeButtonOrder = (symbolName) => {
     let updateOrder = [...this.state.order];
     updateOrder.splice(updateOrder.indexOf(symbolName), 1)
     updateOrder.unshift(symbolName);
-    // this.state.order.splice(this.state.order.indexOf(symbolName), 1);
-    // this.state.order.unshift(symbolName);
-    // console.log(this.state.order);
-    // console.log(updateOrder);
     this.setState({order: updateOrder});
   }
 
@@ -115,9 +85,9 @@ class App extends Component {
     const { crosshairValues } = this.state;
     const panes = stocks.map(symbol => (
       <Pane
-        className="symbol-button"
+        className={symbol === this.state.order[0] ? "symbol-button selected-button" : "symbol-button"}
         key={symbol}
-        size={{ height: '100%', width: 120 }}
+        size={{ height: '100%', width: 75 }}
         resizable={{ x: false, y: false, xy: false }}
         onClick={() => this.changeButtonOrder(symbol)}
       >
@@ -135,55 +105,26 @@ class App extends Component {
                 </div>
                 <div className="symbol-list-container">
                   <SortablePane
+                    className="sortable-pane-container"
                     direction="horizontal"
                     margin={5}
                     isSortable={false}
                     order={this.state.order}
-                    // onOrderChange={order => {
-                    //   this.setState({ order });
-                    // }}
-                    // onResizeStop={(e, key, dir, ref, d) => {
-                    //   this.setState({
-                    //     panes: { ...this.state.panes },
-                    //   });
-                    // }}
                   >
                     {panes}
                   </SortablePane>
-                  {/* <button className="symbol-button" type="button">MSFT</button>
-                    <button className="symbol-button" type="button">TSLA</button>
-                    <button className="symbol-button" type="button">FB</button>
-                    <button className="symbol-button" type="button">UBER</button>
-                    <button className="symbol-button" type="button">AAPL</button>
-                    <button className="symbol-button" type="button">AMD</button>
-                    <button className="symbol-button" type="button">SNAP</button>
-                    <button className="symbol-button" type="button">TWTR</button>
-                    <button className="symbol-button" type="button">NVDA</button>
-                  <button className="symbol-button" type="button">SQ</button> */}
-                  {/* {this.state.symbols.sort((a, b) => (a.position > b.position) ? 1 : -1).map(symbol => {
-                    return (
-                      <button
-                    className="symbol-button"
-                    type="button"
-                    key={symbol.name}
-                    onClick={() => this.adjustButtonOrder(symbol.name)}
-                      >
-                    {symbol.name}
-                      </button>
-                    )
-                  })} */}
                 </div>
               </div>
               <div className="row graph-container">
                 <FlexibleXYPlot
                   onMouseLeave={this._onMouseLeave}
                   margin={{left: 50, right: 20, top: 10, bottom: 30}}
+                  colorType='literal'
                 >
                   <XAxis tickTotal={data.length} tickFormat={v => datetimes[v]} />
                   <YAxis tickFormat={v => '$'+v.toFixed(2)} />
                   <VerticalGridLines style={{stroke: '#243039'}} />
                   <HorizontalGridLines style={{stroke: '#243039'}} />
-                  <LineSeries onNearestX={this._onNearestX} animation data={data} />
                   <Crosshair
                     values={this.state.crosshairValues}
                     style={{line:{stroke: 'rgb(56, 68, 77)'}}}
@@ -193,6 +134,13 @@ class App extends Component {
                       <span>Price: {crosshairValues.length > 0 ? '$'+crosshairValues[0].y.toFixed(2) : ''}</span>
                     </div>
                   </Crosshair>
+                  <LineMarkSeries
+                    onNearestX={this._onNearestX}
+                    animation
+                    data={data}
+                    sizeRange={[5,8]}
+                  />
+
                 </FlexibleXYPlot>
               </div>
               <div className="row stats-container">
