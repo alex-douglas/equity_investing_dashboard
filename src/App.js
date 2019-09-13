@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import profile_img from './resources/profile_img.jpg'
 import './style/main.css';
 import '../node_modules/react-vis/dist/style.css';
-import { SortablePane, Pane } from 'react-sortable-pane';
+import SortableSymbolList from './components/SortableSymbolList';
 import { FlexibleXYPlot, LineMarkSeries, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, Crosshair } from 'react-vis';
 
 const stocks = [
@@ -81,19 +81,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state.crosshairValues);
     const { crosshairValues } = this.state;
-    const panes = stocks.map(symbol => (
-      <Pane
-        className={symbol === this.state.order[0] ? "symbol-button selected-button" : "symbol-button"}
-        key={symbol}
-        size={{ height: '100%', width: 75 }}
-        resizable={{ x: false, y: false, xy: false }}
-        onClick={() => this.changeButtonOrder(symbol)}
-      >
-        {symbol}
-      </Pane>
-    ));
 
     return (
         <div className="outer-container h-100">
@@ -104,15 +92,11 @@ class App extends Component {
                   <button className="toggle-button" type="button">Strategy<br/>Analysis</button>
                 </div>
                 <div className="symbol-list-container">
-                  <SortablePane
-                    className="sortable-pane-container"
-                    direction="horizontal"
-                    margin={5}
-                    isSortable={false}
+                  <SortableSymbolList
+                    stockList={stocks}
                     order={this.state.order}
-                  >
-                    {panes}
-                  </SortablePane>
+                    updateOrder={this.changeButtonOrder}
+                  />
                 </div>
               </div>
               <div className="row graph-container">
