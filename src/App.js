@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import profile_img from './resources/profile_img.jpg'
 import './style/main.css';
 import '../node_modules/react-vis/dist/style.css';
 import SortableSymbolList from './components/SortableSymbolList';
-import { FlexibleXYPlot, LineMarkSeries, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, Crosshair } from 'react-vis';
+import GraphPlot from './components/GraphPlot';
 
 const stocks = [
   'MSFT',
@@ -49,29 +48,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      crosshairValues: [],
       order: stocks
     };
   }
-
-  /**
-   * Event handler for onMouseLeave.
-   * @private
-   */
-  _onMouseLeave = () => {
-    this.setState({crosshairValues: []});
-  };
-
-  /**
-   * Event handler for onNearestX.
-   * @param {Object} value Selected value.
-   * @param {index} index Index of the value in the data array.
-   * @private
-   */
-  _onNearestX = (value, {index}) => {
-    // console.log(value, index)
-    this.setState({crosshairValues: [value]});
-  };
 
   changeButtonOrder = (symbolName) => {
     let updateOrder = [...this.state.order];
@@ -81,7 +60,6 @@ class App extends Component {
   }
 
   render() {
-    const { crosshairValues } = this.state;
 
     return (
         <div className="outer-container h-100">
@@ -100,32 +78,10 @@ class App extends Component {
                 </div>
               </div>
               <div className="row graph-container">
-                <FlexibleXYPlot
-                  onMouseLeave={this._onMouseLeave}
-                  margin={{left: 50, right: 20, top: 10, bottom: 30}}
-                  colorType='literal'
-                >
-                  <XAxis tickTotal={data.length} tickFormat={v => datetimes[v]} />
-                  <YAxis tickFormat={v => '$'+v.toFixed(2)} />
-                  <VerticalGridLines style={{stroke: '#243039'}} />
-                  <HorizontalGridLines style={{stroke: '#243039'}} />
-                  <Crosshair
-                    values={this.state.crosshairValues}
-                    style={{line:{stroke: 'rgb(56, 68, 77)'}}}
-                  >
-                    <div className="crosshair-container">
-                      <div>{crosshairValues.length > 0 ? datetimes[crosshairValues[0].x] : ''} AM</div>
-                      <span>Price: {crosshairValues.length > 0 ? '$'+crosshairValues[0].y.toFixed(2) : ''}</span>
-                    </div>
-                  </Crosshair>
-                  <LineMarkSeries
-                    onNearestX={this._onNearestX}
-                    animation
-                    data={data}
-                    sizeRange={[5,8]}
-                  />
-
-                </FlexibleXYPlot>
+                <GraphPlot
+                  data={data}
+                  dateTimes={datetimes}
+                />
               </div>
               <div className="row stats-container">
                 stats-container
