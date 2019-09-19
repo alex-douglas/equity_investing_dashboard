@@ -1,0 +1,331 @@
+.toggle-button-container .toggle-button:hover, .symbol-list-container .symbol-button:hover {
+  cursor: pointer;
+  background: #2E3641;
+}
+
+.gradient-top, .gradient-bottom {
+  position: absolute;
+  width: 94%;
+  height: 15px;
+  z-index: 1;
+}
+
+.right-outer-frame, .left-outer-frame {
+  display: flex;
+  flex-flow: column;
+}
+
+.twitter-feed-container, .news-feed-container {
+  border: 1px solid #38444D;
+  margin-left: 10px;
+  padding-top: 20px;
+  overflow-y: scroll;
+  height: 50%;
+}
+.twitter-feed-container .help-icon, .news-feed-container .help-icon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 6px;
+}
+.twitter-feed-container .help-icon path, .news-feed-container .help-icon path {
+  d: path("M 6 0 C 2.686 0 0 2.686 0 6 C 0 9.314 2.686 12 6 12 C 9.314 12 12 9.314 12 6 C 12 2.686 9.313 0 6 0 L 6 0 Z M 5.99664 10.7141 C 5.70759 10.7141 5.48576 10.6335 5.33003 10.471 C 5.1743 10.3086 5.097 10.108 5.097 9.86715 C 5.097 9.74503 5.11717 9.63076 5.15638 9.52544 C 5.19559 9.42013 5.25385 9.32826 5.33003 9.24984 C 5.40622 9.17141 5.50033 9.10979 5.61236 9.0661 C 5.72439 9.02241 5.85211 9 5.99664 9 C 6.14116 9 6.26888 9.02241 6.38092 9.0661 C 6.49295 9.10979 6.58706 9.17141 6.66325 9.24984 C 6.73943 9.32826 6.79881 9.42013 6.84026 9.52544 C 6.88171 9.63076 6.903 9.74391 6.903 9.86715 C 6.903 10.108 6.82458 10.3097 6.66661 10.471 C 6.50864 10.6335 6.28569 10.7141 5.99664 10.7141 Z M 8.0685 5.631 C 7.9315 5.826 7.7755 6.013 7.5995 6.193 C 7.4235 6.373 7.2425 6.55 7.0545 6.726 C 6.8395 6.922 6.6965 7.065 6.6245 7.297 C 6.5525 7.529 6.5145 8.015 6.5105 8.015 L 5.1805 8.015 C 5.1805 8.015 5.1975 7.567 5.2305 7.362 C 5.2635 7.157 5.3175 7.005 5.3935 6.835 C 5.4695 6.665 5.5685 6.522 5.6895 6.369 C 5.8105 6.216 5.9595 6.063 6.1345 5.891 C 6.2675 5.762 6.3915 5.644 6.5065 5.529 C 6.6215 5.414 6.7235 5.298 6.8115 5.177 C 6.8995 5.056 6.9685 4.928 7.0195 4.791 C 7.0705 4.654 7.0955 4.502 7.0955 4.335 C 7.0955 3.968 7.0045 3.688 6.8235 3.494 C 6.6425 3.3 6.3755 3.205 6.0235 3.205 C 5.8825 3.205 5.2305 3.167 5.0005 3.657 C 4.9355 3.79 4.9045 4.015 4.9045 4.015 L 3.4805 4.015 C 3.4845 4.015 3.5515 3.447 3.6825 3.167 C 3.8135 2.887 3.9935 2.715 4.2215 2.526 C 4.4495 2.337 4.7175 2.224 5.0245 2.129 C 5.3315 2.034 5.6645 2 6.0235 2 C 6.4185 2 6.7695 2.058 7.0785 2.16 C 7.3875 2.262 7.6485 2.414 7.8635 2.609 C 8.0785 2.804 8.2415 3.045 8.3525 3.326 C 8.4635 3.607 8.5195 3.927 8.5195 4.282 C 8.5195 4.54 8.4785 4.781 8.3965 5.004 C 8.3145 5.227 8.2055 5.436 8.0685 5.631 Z");
+  fill: #FEFEFE;
+}
+
+body {
+  background: #15202B !important;
+  color: #FEFEFE !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+body, html, #root {
+  height: 100%;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+.col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3,
+.col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1,
+.col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7,
+.col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3,
+.col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.gradient-bottom {
+  background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* FF3.6+ */
+  background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* W3C */
+  bottom: 1px;
+}
+
+.gradient-top {
+  background: -moz-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* FF3.6+ */
+  background: -webkit-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* IE10+ */
+  background: linear-gradient(to top, rgba(137, 255, 241, 0) 0%, #15202b 100%);
+  /* W3C */
+}
+
+.graph-container {
+  flex: 1 1 auto;
+  border-top: 1px solid #38444D;
+  border-bottom: 1px solid #38444D;
+}
+.graph-container .crosshair-container {
+  font-size: 1.1em;
+  display: inline-block;
+  background: #545454;
+  border-radius: 2px;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.rv-xy-plot__series circle:nth-last-of-type(1) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+.rv-xy-plot__series circle:nth-last-of-type(2) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+.rv-xy-plot__series circle:nth-last-of-type(3) {
+  animation: forecastFilter 1s infinite;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2;
+}
+
+@keyframes forecastFilter {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 20px #4fc1c8);
+    filter: drop-shadow(0px 0px 20px #4fc1c8);
+    stroke: #4fc1c8;
+  }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 20px #15202B);
+    filter: drop-shadow(0px 0px 20px #15202B);
+    stroke: #15202B;
+  }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 20px #4fc1c8);
+    filter: drop-shadow(0px 0px 20px #4fc1c8);
+    stroke: #4fc1c8;
+  }
+}
+.feed-title {
+  background: #15202B;
+  position: absolute;
+  text-align: center;
+  width: 94%;
+  margin-top: -20px;
+  padding-right: 10px;
+  z-index: 1;
+}
+.feed-title .question-mark-hover {
+  color: white;
+  cursor: help;
+  font-weight: 100;
+}
+.feed-title .question-mark-hover .tooltip-text {
+  font-size: 0.65em;
+  visibility: hidden;
+  width: 85%;
+  border: 1px solid #868686;
+  background-color: #4B5661;
+  color: #FEFEFE;
+  text-align: left;
+  line-height: 1.2;
+  border-radius: 4px;
+  padding: 4px;
+  top: 100%;
+  left: 50%;
+  margin-left: -42.5%;
+  /* Position the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  z-index: 1;
+}
+.feed-title .question-mark-hover .tooltip-text::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #868686 transparent;
+}
+.feed-title .question-mark-hover:hover .tooltip-text {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.outer-container {
+  padding: 10px;
+}
+
+.left-outer-frame {
+  border: 1px solid #38444D;
+}
+
+.right-outer-frame {
+  height: 100%;
+}
+
+.span-user-handle {
+  color: #BBBBBB;
+}
+
+.stats-container {
+  flex: 0 1 80px;
+}
+
+.symbol-list-container {
+  flex-grow: 1;
+  border-left: 1px solid #38444D;
+  padding: 8px;
+  overflow-y: hidden;
+}
+.symbol-list-container .symbol-button {
+  background: #262E39;
+  border: 1px solid #868686;
+  text-align: center;
+  border-radius: 6px;
+  color: #FEFEFE;
+  height: 100%;
+  padding-top: 10px;
+  transform: translateX(30px);
+}
+.symbol-list-container .selected-button {
+  background: #4CCFFF;
+}
+.symbol-list-container::-webkit-scrollbar {
+  height: 0 !important;
+}
+
+.toggle-and-symbol-list-container {
+  display: flex;
+  flex-wrap: nowrap !important;
+  min-height: 60px;
+  max-height: 120px;
+}
+
+.toggle-button-container {
+  padding: 5px;
+}
+.toggle-button-container .toggle-button {
+  background: #262E39;
+  border-color: #868686;
+  border-radius: 3px;
+  color: #FEFEFE;
+  height: 100%;
+}
+.news-feed-container {
+  flex: 1 1 auto;
+  margin-top: 5px;
+}
+.news-feed-container .news-container {
+  background: #1D2833;
+  border: 1px solid #868686;
+  border-radius: 4px;
+  margin: 8px;
+}
+.news-feed-container .news-container .news-header {
+  margin: 5px !important;
+}
+.news-feed-container .news-container .news-publisher-info {
+  padding-left: 5px !important;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.news-feed-container .news-container .news-body {
+  font-size: 0.85em;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  line-height: 1.3em;
+}
+.news-feed-container .news-container .news-footer {
+  background: #262E39;
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: 100;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 2px !important;
+  border-top: 1px solid #38444D;
+}
+
+.news-feed-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.twitter-feed-container {
+  margin-bottom: 5px;
+}
+.twitter-feed-container .tweet-container {
+  background: #1D2833;
+  border: 1px solid #868686;
+  border-radius: 4px;
+  margin: 8px;
+}
+.twitter-feed-container .tweet-container .tweet-header {
+  margin: 5px !important;
+}
+.twitter-feed-container .tweet-container .tweet-profile-img {
+  border-radius: 100%;
+  width: 100%;
+  max-width: 36px;
+}
+.twitter-feed-container .tweet-container .tweet-user-info {
+  padding-left: 5px !important;
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.twitter-feed-container .tweet-container .tweet-body {
+  font-size: 0.85em;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  line-height: 1.3em;
+}
+.twitter-feed-container .tweet-container .tweet-footer {
+  background: #262E39;
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: 100;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 2px !important;
+  border-top: 1px solid #38444D;
+}
+
+.twitter-feed-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+/*# sourceMappingURL=main.css.map */
