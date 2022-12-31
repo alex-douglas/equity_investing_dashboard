@@ -8,7 +8,7 @@
     "pg": "^7.12.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "0.9.x",
+    "react-scripts": "5.0.x",
     "react-sortable-pane": "^1.1.0",
     "react-vis": "^1.11.7"
   },
